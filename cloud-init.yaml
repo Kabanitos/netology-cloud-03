@@ -1,0 +1,10 @@
+#cloud-config
+users:
+  - name: admin1
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh_authorized_keys:
+      - $(cat ~/.ssh/id_ed25519.pub)
+runcmd:
+  -  echo '<p>hostname is:' "$(hostname)" '</p><br><a href="https://aleksandr03032025.website.yandexcloud.net">Link</a>' >  /var/www/html/index.html 
